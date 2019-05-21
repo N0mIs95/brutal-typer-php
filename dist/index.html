@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Brutal Typer</title>
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+<link href="style.css" rel="stylesheet"></head>
+
+<body id="body">
+        <div class="loader">
+            <div class="wrapper">
+                <div class="wrapper-ball">
+                        <div class="ball"></div>
+                        <div class="ball"></div>
+                        <div class="ball"></div>
+                        <div class="ball"></div>
+                </div>
+                <p>Use headphones for better experience</p>
+            </div>
+        </div>
+
+        <div class="menu">
+                <div class="wrapper">
+                    <h1>Brutal <span>Typer</span></h1>
+                    <ul class="main-list">
+                        <li class="list-item">
+                            <button  class="btn-menu" data-id="start">Play Game</button>
+                        </li>
+                        <li  class="list-item btn-music">
+                            <button data-id="leaderboard" class="btn-menu">Leaderboard</button>
+                        </li>
+                        <li class="list-item">
+                            <button data-id="credits" class="btn-menu">Credits</button>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+        <div class="menu-animation">
+            <div class="wrapper">
+                <ul>
+                    <li class="test" data-id="play-anim">Play</li>
+                    <li data-id="leaderboard-anim">Score</li>
+                    <li data-id="credits-anim">Credits</li>
+                </ul>
+            </div>
+        </div>
+        <canvas id="game-canvas"></canvas>
+
+        <div data-id="pentacle-container" class="pentacle-container">
+                <svg data-id="pentacle"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.49 426.49">
+                    <defs>
+                        <style>
+                            .cls-1{fill:none;stroke:#0099FF;stroke-miterlimit:10;stroke-width:2px;}
+                        </style>
+                    </defs>
+                    <title>pentacle_full_1</title>
+                    <g id="Calque_2" data-name="Calque 2">
+                        <g id="Calque_2-2" data-name="Calque 2">
+                            <g class="pentacle_01">
+                                <circle class="big circle cls-1 freq-anim" cx="213.25" cy="213.25" r="211.83"/>
+                                <polygon class="ext rect cls-1" points="363.03 63.46 363.03 151.2 425.08 213.25 363.03 275.29 363.03 363.03 275.29 363.03 213.25 425.08 151.2 363.03 63.46 363.03 63.46 275.29 1.41 213.25 63.46 151.2 63.46 63.46 151.2 63.46 213.25 1.41 275.29 63.46 363.03 63.46"/>
+                                <rect class="mid rect cls-1" x="72.67" y="72.67" width="281.15" height="281.15" transform="translate(213.25 -88.33) rotate(45)"/>
+                                <rect class="internal rect cls-1" x="72.67" y="72.67" width="281.15" height="281.15"/>
+                            </g>  
+
+                            <g class="pentacle_02">
+                                <polygon class="external star cls-1" points="312.65 113.84 312.65 172.07 353.82 213.25 312.65 254.42 312.65 312.65 254.42 312.65 213.25 353.82 172.07 312.65 113.84 312.65 113.84 254.42 72.67 213.25 113.84 172.07 113.84 113.84 172.07 113.84 213.25 72.67 254.42 113.84 312.65 113.84"/>
+                                <polygon class="branche cls-1" points="213.25 72.67 213.25 213.25 312.65 113.84 213.25 213.25 353.82 213.25 213.25 213.25 312.65 312.65 213.25 213.25 213.25 353.82 213.25 213.25 113.84 312.65 213.25 213.25 72.67 213.25 213.25 213.25 113.84 113.84 213.25 213.25 213.25 72.67"/>
+                            </g>
+                            
+                            <g class="pentacle_03">
+                                <circle class="mid circle cls-1 freq-anim" cx="213.25" cy="213.25" r="81.83"/>
+                                <polygon class="internal star cls-1" points="311.08 254.23 269.84 270.88 252.45 311.82 211.51 294.43 170.26 311.08 153.61 269.84 112.67 252.45 130.06 211.51 113.41 170.26 154.65 153.61 172.04 112.67 212.98 130.06 254.23 113.41 270.88 154.65 311.82 172.04 294.43 212.98 311.08 254.23"/>
+                            </g>
+
+                            <g class="pentacle_04">
+                                <circle class="small circle cls-1 freq-anim" cx="213.25" cy="213.25" r="46.87"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+        </div>
+
+        <div id="game-DOM"></div>
+        <div class="score">
+            <p>Score: <span id="score-counter"></span></p>
+            <p>Streak: <span id="letter-combo"></span></p>
+        </div>
+
+        <div id="test" class="sound-control">
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+        </div>
+
+        <div class="tuto">
+            <div>
+                <h2>Type the words before they enter into the black hole.</h2>
+
+                <h2>Press any key to start !</h2>
+            </div>
+        </div>
+
+        <div class="loose-screen">
+            <div class="wrapper">
+                <h2 data-id="loose-title">
+                <span>G</span><span>a</span><span>m</span><span>e</span> <span>O</span><span>v</span><span>e</span><span>r</span> <span>!</span>
+                </h2>
+                <div data-id="score-lines" class="subwrapper">
+                    <p>You reached wave <span data-id="wave-number"></span></p>
+                    <p>Score: <span data-id="score"></span></p>
+                    <p>Longest streak: <span data-id="streak"></span></p>
+                </div>
+                <form data-id="score-form">
+                    <div class="form-field">
+                            <input maxlength="8" type="text" placeholder="Max 8 characters"/>
+                            <button class="btn" type="submit">Submit</button>
+                            <label class="label-wrapper">
+                                <span class="label-anim">Enter your nickname</span>
+                            </label>
+                    </div>
+                </form>
+                <a data-id="home" href="index.html">Back to menu</a>
+            </div>
+        </div>
+
+        <div class="leaderboard">
+            <div class="wrapper-table">
+                    <div class="wrapper">
+                            <h3>01</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>02</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>03</h3>
+                            <h3>Klaenex</h3>
+                            <h3>666</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>04</h3>
+                            <h3>N0mIs</h3>
+                            <h3>10000</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>05</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>06</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>07</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>08</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>09</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+                        <div class="wrapper">
+                            <h3>10</h3>
+                            <h3>Pseudo</h3>
+                            <h3>6790</h3>
+                        </div>
+            </div>
+
+            <div class="wrapper-a">
+                <a href="index.html">Back to menu</a>
+            </div>
+
+        </div>
+
+        <div class="transition">
+            <div class="transition-block"></div>
+            <div class="transition-block"></div>
+            <div class="transition-block"></div>
+            <div class="transition-block"></div>
+        </div>
+<script type="text/javascript" src="main.js"></script></body>
+
+</html>
